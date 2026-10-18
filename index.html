@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Adelia - Accounting, Tax & Finance</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter, Playfair Display & Caveat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Caveat:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#F0F4FA',
+                            100: '#DCE4F2',
+                            200: '#B9C9E5',
+                            700: '#1A2A4A',
+                            800: '#111C33',
+                            900: '#0A1326', // Imperial Midnight Navy
+                            950: '#050B17'  // Obsidian Midnight Navy Base
+                        },
+                        gold: {
+                            300: '#FDE68A',
+                            400: '#F3C06B', // Liquid Champagne Gold
+                            500: '#E5A93C', // Rich Metallic Gold
+                            600: '#C4821A',
+                            700: '#9B620C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        cursive: ['Great Vibes', 'cursive'],
+                        quote: ['Caveat', 'cursive']
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px -5px rgba(229, 169, 60, 0.35)',
+                        'gold-glow-lg': '0 0 40px -5px rgba(229, 169, 60, 0.45)',
+                        'glass-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+                        'glass-light': '0 20px 40px -15px rgba(15, 26, 48, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #F4F6FB;
+            color: #0F172A;
+        }
+
+        .dark body {
+            background-color: #050B17;
+            color: #F1F5F9;
+        }
+
+        /* Gold Metallic Button & Text Backgrounds */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF1D6 0%, #F3C06B 30%, #E5A93C 70%, #C4821A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #F3C06B 0%, #E5A93C 50%, #C4821A 100%);
+        }
+        .bg-gold-gradient:hover {
+            background: linear-gradient(135deg, #FFE29D 0%, #F3C06B 50%, #E5A93C 100%);
+        }
+
+        /* Hero Background with Ambient Lights */
+        .hero-dashboard-bg {
+            background-color: #070E1E;
+            background-image: 
+                radial-gradient(circle at 85% 20%, rgba(229, 169, 60, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 15% 85%, rgba(26, 42, 74, 0.6) 0%, transparent 55%),
+                radial-gradient(circle at 50% 50%, rgba(10, 19, 38, 0.8) 0%, transparent 100%);
+        }
+
+        /* Gold Curved Swoosh Accents */
+        .gold-swoosh-topright {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            border: 45px solid rgba(229, 169, 60, 0.15);
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        .gold-swoosh-bottom {
+            position: absolute;
+            bottom: -100px;
+            right: -40px;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(229, 169, 60, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Card Effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+        .dark .glass-card {
+            background: rgba(17, 28, 51, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 169, 60, 0.18);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(229, 169, 60, 0.5);
+            box-shadow: 0 15px 30px -10px rgba(229, 169, 60, 0.25);
+        }
+
+        /* Tab Buttons Active Style */
+        .tab-btn {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-btn.active-tab {
+            background: linear-gradient(135deg, #0A1326 0%, #111C33 100%);
+            color: #F3C06B;
+            border: 1px solid rgba(229, 169, 60, 0.35);
+            box-shadow: 0 4px 15px rgba(10, 19, 38, 0.3);
+        }
+        .dark .tab-btn.active-tab {
+            background: linear-gradient(135deg, #F3C06B 0%, #E5A93C 100%);
+            color: #050B17;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 18px rgba(229, 169, 60, 0.3);
+        }
+    </style>
+
+    <script>
+        // Init saved or system theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-navy-950">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-[#070E1E]/95 backdrop-blur-md text-white border-b border-navy-800/80 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-gold-gradient text-navy-950 flex items-center justify-center font-black text-xl font-sans shadow-gold-glow group-hover:scale-105 transition duration-300">
+                        A
+                    </div>
+                    <span class="font-extrabold text-xl text-white tracking-tight group-hover:text-gold-400 transition-colors">Adelia</span>
+                </a>
+
+                <!-- Desktop Nav Links (Home, About, Experience, Organization, Achievement, Certifications, Skills, Software, Project, Contact) -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs font-semibold tracking-wide">
+                    <a href="#home" data-i18n="nav_home" class="px-3 py-1.5 text-gold-400 font-bold border-b-2 border-gold-400 transition">Home</a>
+                    <a href="#about-section" onclick="switchAboutTab('profile')" data-i18n="nav_about" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">About</a>
+                    <a href="#experience" data-i18n="nav_exp" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Experience</a>
+                    <a href="#organization" data-i18n="nav_org" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Organization</a>
+                    <a href="#achievement" data-i18n="nav_achieve" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Achievement</a>
+                    <a href="#certificate" data-i18n="nav_cert" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Certifications</a>
+                    <a href="#about-section" onclick="switchAboutTab('skills')" data-i18n="nav_skills" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Skills</a>
+                    <a href="#about-section" onclick="switchAboutTab('software')" data-i18n="nav_software" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Software</a>
+                    <a href="#project" data-i18n="nav_project" class="px-3 py-1.5 text-slate-300 hover:text-gold-400 transition">Project</a>
+                </nav>
+
+                <!-- Actions: Language Switcher + Dark Mode Toggle + Contact Button -->
+                <div class="hidden md:flex items-center gap-2.5">
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-navy-800/90 hover:bg-navy-700 text-gold-400 font-bold text-xs border border-gold-500/20 transition flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-globe text-xs"></i>
+                        <span id="lang-indicator">ID</span>
+                    </button>
+
+                    <!-- Dark / Light Theme Toggle -->
+                    <button onclick="toggleTheme()" class="w-9 h-9 rounded-lg bg-navy-800/90 hover:bg-navy-700 text-gold-400 flex items-center justify-center border border-gold-500/20 transition shadow-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon text-xs" id="theme-icon"></i>
+                    </button>
+
+                    <!-- Contact Pill Button -->
+                    <a href="#contact" data-i18n="nav_contact" class="px-5 py-2 rounded-full bg-gold-gradient text-navy-950 font-extrabold text-xs transition shadow-gold-glow hover:scale-105 transform duration-200">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-2 lg:hidden">
+                    <button onclick="toggleTheme()" class="w-8 h-8 rounded-lg bg-navy-800 text-gold-400 flex items-center justify-center">
+                        <i class="fa-solid fa-moon text-xs" id="theme-icon-mobile"></i>
+                    </button>
+                    <button onclick="toggleLanguage()" class="px-2.5 py-1 rounded-lg bg-navy-800 text-gold-400 font-bold text-xs border border-navy-700">
+                        <span id="lang-indicator-mobile">ID</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-navy-800">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-b border-navy-800 px-4 pt-2 pb-6 space-y-2 text-sm">
+            <a href="#home" onclick="toggleMobileMenu()" data-i18n="nav_home" class="block px-3 py-2 rounded-lg text-gold-400 font-bold">Home</a>
+            <a href="#about-section" onclick="toggleMobileMenu(); switchAboutTab('profile')" data-i18n="nav_about" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">About</a>
+            <a href="#experience" onclick="toggleMobileMenu()" data-i18n="nav_exp" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Experience</a>
+            <a href="#organization" onclick="toggleMobileMenu()" data-i18n="nav_org" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Organization</a>
+            <a href="#achievement" onclick="toggleMobileMenu()" data-i18n="nav_achieve" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Achievement</a>
+            <a href="#certificate" onclick="toggleMobileMenu()" data-i18n="nav_cert" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Certifications</a>
+            <a href="#about-section" onclick="toggleMobileMenu(); switchAboutTab('skills')" data-i18n="nav_skills" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Skills</a>
+            <a href="#about-section" onclick="toggleMobileMenu(); switchAboutTab('software')" data-i18n="nav_software" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Software</a>
+            <a href="#project" onclick="toggleMobileMenu()" data-i18n="nav_project" class="block px-3 py-2 rounded-lg text-gray-200 hover:bg-navy-800">Project</a>
+            <a href="#contact" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block px-3 py-2 rounded-lg bg-gold-gradient text-navy-950 font-bold text-center">Contact</a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: DASHBOARD (HOME) -->
+    <section id="home" class="hero-dashboard-bg text-white relative overflow-hidden pt-12 pb-0 md:pt-16 border-b border-navy-800/80 min-h-[480px] flex flex-col justify-between">
+        <div class="gold-swoosh-topright"></div>
+        <div class="gold-swoosh-bottom"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
+            <!-- Grid 2 Kolom: Teks di Kiri, Foto Portrait Sejajar di Kanan -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                
+                <!-- SISI KIRI: Teks & Tombol -->
+                <div class="lg:col-span-7 space-y-4 text-left pb-12 sm:pb-16">
+                    <p class="text-2xl sm:text-3xl text-white font-medium tracking-tight" data-i18n="hero_hello">
+                        Hello, I'm
+                    </p>
+                    
+                    <h1 class="text-6xl sm:text-7xl md:text-8xl font-black text-gold-500 tracking-tight leading-none filter drop-shadow-md">
+                        Adelia
+                    </h1>
+                    
+                    <p class="text-2xl sm:text-3xl text-white font-bold tracking-wide">
+                        Accounting <span class="text-white font-light">|</span> Tax <span class="text-white font-light">|</span> Finance
+                    </p>
+
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl pt-1 font-normal italic" data-i18n="hero_desc">
+                        Saya adalah mahasiswa Akuntansi Perpajakan yang memiliki ketertarikan di bidang perpajakan, keuangan, serta manajemen aset.
+                    </p>
+
+                    <!-- Tombol Download CV (Solid Gold) & Tombol Ikon (Outline Emas) -->
+                    <div class="pt-4 flex items-center gap-3">
+                        <button onclick="downloadCV()" class="px-6 py-3 rounded-xl bg-[#F3C06B] hover:bg-[#e2af5b] text-[#0A1326] font-bold text-sm tracking-wide transition shadow-sm hover:scale-105 transform duration-200 flex items-center justify-center">
+                            <span data-i18n="download_cv_hero">Download CV</span>
+                        </button>
+                        <button onclick="downloadCV()" class="w-11 h-11 rounded-xl bg-[#0A1326] border border-[#F3C06B] hover:bg-navy-800 text-[#F3C06B] flex items-center justify-center transition shadow-sm hover:scale-105 transform duration-200" title="Download Document">
+                            <i class="fa-regular fa-file-lines text-base"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SISI KANAN: Foto Profil Sejajar di Samping Teks -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end relative items-end">
+                    <div class="relative w-72 sm:w-80 md:w-full max-w-md h-[380px] sm:h-[420px] md:h-[480px] flex items-end justify-center">
+                        <div class="absolute bottom-10 right-0 w-80 h-80 rounded-full border-[30px] border-gold-500/10 pointer-events-none"></div>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                             alt="Adelia Portrait" class="relative z-10 max-h-full object-contain object-bottom filter drop-shadow-2xl">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD SHORTCUT GRID (EXACT 10 CARDS) -->
+    <section class="py-10 bg-slate-50 dark:bg-navy-900/90 border-b border-slate-200 dark:border-navy-800/80 transition-colors relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5">
+                
+                <!-- Card 1: Profile -->
+                <a href="#about-section" onclick="switchAboutTab('profile')" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_profile">Profile</h4>
+                </a>
+
+                <!-- Card 2: Experience -->
+                <a href="#experience" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_exp">Experience</h4>
+                </a>
+
+                <!-- Card 3: Organization -->
+                <a href="#organization" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_org">Organization</h4>
+                </a>
+
+                <!-- Card 4: Achievement -->
+                <a href="#achievement" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_achieve">Achievement</h4>
+                </a>
+
+                <!-- Card 5: Certification -->
+                <a href="#certificate" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_cert">Certification</h4>
+                </a>
+
+                <!-- Card 6: Skills -->
+                <a href="#about-section" onclick="switchAboutTab('skills')" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_skills">Skills</h4>
+                </a>
+
+                <!-- Card 7: Software -->
+                <a href="#about-section" onclick="switchAboutTab('software')" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_software">Software</h4>
+                </a>
+
+                <!-- Card 8: Project -->
+                <a href="#project" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_project">Project</h4>
+                </a>
+
+                <!-- Card 9: Contact -->
+                <a href="#contact" class="p-5 rounded-2xl glass-card glass-card-hover text-[#0F172A] dark:text-white shadow-glass-light dark:shadow-glass-dark text-center group flex flex-col items-center justify-center bg-white dark:bg-navy-800">
+                    <div class="w-12 h-12 rounded-xl bg-navy-950 text-gold-400 group-hover:bg-gold-gradient group-hover:text-navy-950 flex items-center justify-center text-xl mb-3 transition shadow-sm">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="font-bold text-xs tracking-wide" data-i18n="shortcut_contact">Contact</h4>
+                </a>
+
+                <!-- Card 10: Quote Card -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-navy-800 glass-card border border-slate-200 dark:border-navy-700 text-center flex flex-col items-center justify-center col-span-2 sm:col-span-1 shadow-sm">
+                    <p class="font-quote text-xl font-bold text-navy-950 dark:text-gold-300 italic leading-snug" data-i18n="card_quote">
+                        "Small steps create big results."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT SECTION WITH SUB-TABS -->
+    <section id="about-section" class="py-16 md:py-20 bg-white dark:bg-navy-950 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-6 border-b border-slate-200 dark:border-navy-800/80">
+                <div>
+                    <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="tab_section_subtitle">Informasi Utama</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 dark:text-white tracking-tight" id="tab-section-title" data-i18n="tab_section_title">About Me</h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-navy-900 border border-slate-200 dark:border-navy-800">
+                    <button id="btn-tab-profile" onclick="switchAboutTab('profile')" class="tab-btn active-tab px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i>
+                        <span data-i18n="tab_profile">Profil Saya</span>
+                    </button>
+                    <button id="btn-tab-education" onclick="switchAboutTab('education')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span data-i18n="tab_edu">Pendidikan</span>
+                    </button>
+                    <button id="btn-tab-skills" onclick="switchAboutTab('skills')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-gears"></i>
+                        <span data-i18n="tab_skills">Keahlian</span>
+                    </button>
+                    <button id="btn-tab-software" onclick="switchAboutTab('software')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-navy-950 dark:hover:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span data-i18n="tab_software">Software Tools</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PANEL 1: PROFIL SAYA -->
+            <div id="panel-profile" class="tab-panel space-y-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-4 flex justify-center lg:justify-start">
+                        <div class="w-60 sm:w-64 h-72 sm:h-80 rounded-2xl overflow-hidden border-2 border-gold-500/30 dark:border-gold-500/40 bg-slate-200 dark:bg-navy-800 shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Adelia Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 space-y-5">
+                        <div class="space-y-1.5">
+                            <h3 class="text-3xl sm:text-4xl font-extrabold text-navy-950 dark:text-white tracking-tight">Adelia</h3>
+                            <p class="text-sm font-extrabold text-gold-600 dark:text-gold-400 uppercase tracking-wide" data-i18n="profile_role">Mahasiswa Akuntansi Perpajakan</p>
+                            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400" data-i18n="profile_univ">Politeknik Negeri Lampung</p>
+                        </div>
+
+                        <div class="space-y-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-location-dot text-gold-500 w-4 text-center"></i>
+                                <span>Lampung, Indonesia</span>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-envelope text-gold-500 w-4 text-center"></i>
+                                <a href="mailto:adelia@gmail.com" class="hover:underline font-semibold">adelia@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2 pt-1">
+                            <a href="https://linkedin.com" target="_blank" class="w-9 h-9 rounded-xl bg-navy-950 dark:bg-navy-800 text-gold-400 flex items-center justify-center hover:bg-gold-gradient hover:text-navy-950 transition duration-300 text-sm shadow">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-xl bg-navy-950 dark:bg-navy-800 text-gold-400 flex items-center justify-center hover:bg-gold-gradient hover:text-navy-950 transition duration-300 text-sm shadow">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="mailto:adelia@gmail.com" class="w-9 h-9 rounded-xl bg-navy-950 dark:bg-navy-800 text-gold-400 flex items-center justify-center hover:bg-gold-gradient hover:text-navy-950 transition duration-300 text-sm shadow">
+                                <i class="fa-solid fa-globe"></i>
+                            </a>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-gold-500/5 to-slate-100 dark:from-navy-800/80 dark:to-navy-900 border border-gold-500/30 relative overflow-hidden flex items-center gap-4 shadow-sm">
+                            <div class="w-1.5 h-14 rounded-full bg-gold-gradient shrink-0"></div>
+                            <p class="text-xs sm:text-sm text-navy-950 dark:text-slate-200 font-medium italic leading-relaxed" data-i18n="profile_quote">
+                                "Saya percaya bahwa ilmu, pengalaman, dan karakter adalah kunci untuk mencapai masa depan yang lebih baik."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-slate-200 dark:border-navy-800/80 space-y-4">
+                    <h4 class="text-xl font-extrabold text-navy-950 dark:text-white" data-i18n="profile_about_title">Tentang Saya</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl font-normal" data-i18n="profile_about_text">
+                        Saya adalah mahasiswa Akuntansi Perpajakan semester 7 di Politeknik Negeri Lampung. Memiliki ketertarikan di bidang perpajakan, keuangan, dan manajemen aset. Saya senang belajar hal baru, bekerja dalam tim, serta terus mengembangkan diri untuk mencapai tujuan baru di masa depan.
+                    </p>
+
+                    <div class="pt-2">
+                        <button onclick="downloadCV()" class="px-6 py-3 rounded-xl bg-gold-gradient text-navy-950 font-black text-xs hover:scale-105 transition shadow-gold-glow flex items-center gap-3">
+                            <span data-i18n="download_cv_hero">Download CV</span>
+                            <div class="w-6 h-6 rounded bg-navy-950 text-gold-400 flex items-center justify-center border border-gold-500/30">
+                                <i class="fa-solid fa-download text-[10px]"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 2: PENDIDIKAN -->
+            <div id="panel-education" class="tab-panel hidden space-y-6">
+                <div class="max-w-4xl mx-auto glass-card p-8 rounded-2xl shadow-sm">
+                    <div class="flex items-center gap-3.5 mb-6 pb-4 border-b border-slate-200 dark:border-navy-700">
+                        <div class="w-11 h-11 rounded-xl bg-gold-gradient text-navy-950 flex items-center justify-center text-xl font-bold shadow-gold-glow">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-extrabold text-navy-950 dark:text-white" data-i18n="edu_heading">Riwayat Pendidikan Formal</h3>
+                            <span class="text-xs text-slate-500 dark:text-slate-400" data-i18n="edu_subheading">Jejak akademik dan fokus studi keahlian</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8 relative pl-6 border-l-2 border-gold-500 my-4">
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-500 ring-4 ring-white dark:ring-navy-900"></div>
+                            <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block mb-1">2021 - Sekarang (Semester 7)</span>
+                            <h4 class="text-lg font-extrabold text-navy-950 dark:text-white">Politeknik Negeri Lampung (POLINELA)</h4>
+                            <p class="text-xs font-bold text-slate-600 dark:text-slate-300">D4 Akuntansi Perpajakan</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" data-i18n="edu_polinela_desc">
+                                Mempelajari pemahaman mendalam terkait Akuntansi Keuangan, Rekonsiliasi Fiskal, Kepatuhan & Pemeriksaan Pajak, Penggunaan Coretax & DJP Online, Serta Akuntansi Manajemen.
+                            </p>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gold-500 ring-4 ring-white dark:ring-navy-900"></div>
+                            <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block mb-1">2018 - 2021</span>
+                            <h4 class="text-lg font-extrabold text-navy-950 dark:text-white">SMA / SMK Negeri</h4>
+                            <p class="text-xs font-bold text-slate-600 dark:text-slate-300">Jurusan Akuntansi & Keuangan / IPS</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" data-i18n="edu_school_desc">
+                                Mempelajari dasar-dasar pencatatan jurnal akuntansi, siklus pembukuan keuangan, dan perhitungan bisnis dasar.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-slate-200 dark:border-navy-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <span><i class="fa-solid fa-certificate text-gold-500 mr-1"></i> Status Akreditasi: <strong>Baik Sekali</strong></span>
+                        <span class="font-bold text-navy-950 dark:text-gold-400">Polinela Lampung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 3: KEAHLIAN -->
+            <div id="panel-skills" class="tab-panel hidden space-y-6">
+                <div class="glass-card p-8 rounded-2xl space-y-8">
+                    <div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-gold-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-gear text-gold-500 text-base"></i> Hard Skills (Keahlian Teknis)
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Microsoft Excel Advanced
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Sistem Coretax
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> DJP Online & e-Filing
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Rekonsiliasi Fiskal
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Laporan Keuangan
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> SPT Masa & Tahunan
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Manajemen Aset
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-circle-check text-gold-500"></i> Financial Analysis
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-gold-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-gold-500 text-base"></i> Soft Skills (Keterampilan Interpersonal)
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> Problem Solving
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> Time Management
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> Team Collaboration
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> Communication
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> Adaptability
+                            </div>
+                            <div class="p-4 rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 text-xs font-semibold text-navy-950 dark:text-slate-200 shadow-sm flex items-center gap-2.5">
+                                <i class="fa-solid fa-star text-gold-500"></i> High Attention to Detail
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 4: SOFTWARE TOOLS -->
+            <div id="panel-software" class="tab-panel hidden space-y-6">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Microsoft Excel</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_excel">Pengolahan data & analisis keuangan</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-file-word"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Microsoft Word</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_word">Dokumentasi & penyusunan laporan</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-file-powerpoint"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Microsoft PowerPoint</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_ppt">Media presentasi interaktif</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Coretax System</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_coretax">Sistem Administrasi Perpajakan</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-gold-gradient text-navy-950 flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">DJP Online</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_djp">e-Filing & e-Billing Pajak</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-red-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Google Workspace</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_gw">Kolaborasi Sheets & Drive</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500 text-white flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white">Canva</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_canva">Desain grafis & visualisasi</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl glass-card glass-card-hover text-center shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-slate-300 dark:bg-navy-800 text-navy-950 dark:text-gold-400 flex items-center justify-center mx-auto mb-3 text-2xl font-bold shadow-md">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <h4 class="text-xs font-extrabold text-navy-950 dark:text-white" data-i18n="sw_other_title">Lainnya</h4>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1" data-i18n="sw_other">Tools & Aplikasi Pendukung</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: ORGANISASI & KEPANITIAAN -->
+    <section id="organization" class="py-16 md:py-20 bg-slate-100 dark:bg-navy-900/60 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="org_subtitle">Pengalaman Berorganisasi</span>
+                <h2 class="text-3xl font-extrabold text-navy-950 dark:text-white" data-i18n="org_title">Organisasi & Kepanitiaan</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">Wakil Kepala Bidang PSDA</h3>
+                            <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-2">Koperasi Mahasiswa Mandiri</p>
+                            <span class="inline-block px-2.5 py-0.5 rounded bg-slate-200 dark:bg-navy-800 text-navy-950 dark:text-slate-300 text-[10px] font-bold mb-3">2025 - 2026</span>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="org_item1_desc">
+                                Bertanggung jawab dalam pengelolaan sumber daya manusia, pengawasan kinerja anggota, dan pengembangan program kerja organisasi.
+                            </p>
+                        </div>
+                        <div class="w-28 h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200 dark:border-navy-700 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Rapat Kerja" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between shadow-sm">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">TECA Klinik Akuntansi & Perpajakan</h3>
+                            <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-2">Politeknik Negeri Lampung</p>
+                            <span class="inline-block px-2.5 py-0.5 rounded bg-slate-200 dark:bg-navy-800 text-navy-950 dark:text-slate-300 text-[10px] font-bold mb-3">2025 - 2026</span>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="org_item2_desc">
+                                Membantu kegiatan administrasi klinik, penyelenggaraan pelatihan akuntansi, dan program sosialisasi e-Filing / perpajakan.
+                            </p>
+                        </div>
+                        <div class="w-28 h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200 dark:border-navy-700 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Klinik TECA" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+                <h4 class="text-sm font-bold text-navy-950 dark:text-white mb-4" data-i18n="org_doc_title">Dokumentasi Organisasi & Kepanitiaan</h4>
+                <div id="org-gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800', 'Rapat Kerja PSDA')">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Rapat Kerja" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800', 'Sosialisasi TECA Klinik')">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Sosialisasi" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: EXPERIENCE -->
+    <section id="experience" class="py-16 md:py-20 bg-white dark:bg-navy-950 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="exp_subtitle">Pengalaman Kerja & Magang</span>
+                <h2 class="text-3xl font-extrabold text-navy-950 dark:text-white">Experience</h2>
+            </div>
+
+            <div class="space-y-8 mb-16 max-w-5xl">
+                <!-- Experience Item 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-7 flex gap-4 items-start">
+                        <div class="mt-1 w-4 h-4 rounded-full bg-gold-gradient shrink-0 ring-4 ring-gold-500/20 shadow-gold-glow"></div>
+                        <div>
+                            <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block mb-1">Mar 2026 - Jul 2026</span>
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">MBKM Magang Industri</h3>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">PT. / Instansi Keuangan</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_item1_desc">
+                                Membantu kegiatan administrasi perpajakan, pengelolaan data transaksi, dan penyusunan laporan keuangan bulanan.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="h-36 rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-700 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Magang Industri" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-7 flex gap-4 items-start">
+                        <div class="mt-1 w-4 h-4 rounded-full bg-gold-gradient shrink-0 ring-4 ring-gold-500/20 shadow-gold-glow"></div>
+                        <div>
+                            <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block mb-1">Jan 2024 - Des 2024</span>
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">Praktik Kerja Lapangan (PKL)</h3>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">KPP Pratama Natar</p>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="exp_item2_desc">
+                                Membantu pelayanan WPOP, asistensi pelaporan e-Filing, pengelolaan arsip SPT, dan kegiatan kehumasan kantor pajak.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="h-36 rounded-2xl overflow-hidden border border-slate-200 dark:border-navy-700 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800" 
+                                 alt="PKL KPP Pratama" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 sm:p-8 rounded-2xl shadow-sm">
+                <div class="mb-6">
+                    <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="exp_gallery_sub">Detail Dokumentasi</span>
+                    <h3 class="text-xl font-extrabold text-navy-950 dark:text-white" data-i18n="exp_gallery_title">Foto Pengalaman Kerja</h3>
+                </div>
+
+                <div id="exp-gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div class="h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 shadow-sm cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800', 'Dokumentasi Kerja 1')">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="Kerja 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 shadow-sm cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800', 'Dokumentasi Kerja 2')">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800" alt="Kerja 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-32 sm:h-40 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 shadow-sm cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800', 'Dokumentasi Kerja 3')">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Kerja 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SERTIFIKASI -->
+    <section id="certificate" class="py-16 md:py-20 bg-slate-100 dark:bg-navy-900/60 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="cert_subtitle">Sertifikasi & Kualifikasi</span>
+                <h2 class="text-3xl font-extrabold text-navy-950 dark:text-white" data-i18n="cert_title">Sertifikasi</h2>
+            </div>
+
+            <div id="cert-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Cert 1 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-sm font-extrabold text-navy-950 dark:text-white">Sertifikat Brevet A & B</h3>
+                        <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-1">IKPI (Ikatan Konsultan Pajak Indonesia)</p>
+                        <span class="text-[10px] font-bold text-slate-400 block mb-2">2024</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="cert1_desc">Sertifikasi perpajakan tingkat dasar dan lanjutan.</p>
+                    </div>
+                    <div class="w-24 h-28 bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 rounded-xl p-1 shrink-0 flex flex-col items-center justify-center text-center shadow-xs cursor-pointer hover:border-gold-500 transition" onclick="openCertModal('Sertifikat Brevet A & B', 'IKPI', '2024')">
+                        <i class="fa-solid fa-file-contract text-navy-950 dark:text-gold-400 text-3xl mb-1"></i>
+                        <span class="text-[9px] font-bold text-navy-950 dark:text-white">Brevet A & B</span>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-sm font-extrabold text-navy-950 dark:text-white">Sertifikat Workshop Perpajakan</h3>
+                        <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-1">Kanwil DJP</p>
+                        <span class="text-[10px] font-bold text-slate-400 block mb-2">2024</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="cert2_desc">Peningkatan pemahaman terkait regulasi perpajakan terbaru.</p>
+                    </div>
+                    <div class="w-24 h-28 bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 rounded-xl p-1 shrink-0 flex flex-col items-center justify-center text-center shadow-xs cursor-pointer hover:border-gold-500 transition" onclick="openCertModal('Sertifikat Workshop Perpajakan', 'Kanwil DJP', '2024')">
+                        <i class="fa-solid fa-award text-navy-950 dark:text-gold-400 text-3xl mb-1"></i>
+                        <span class="text-[9px] font-bold text-navy-950 dark:text-white">Workshop Pajak</span>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-sm font-extrabold text-navy-950 dark:text-white">Sertifikat Pelatihan Microsoft Excel</h3>
+                        <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-1">Politeknik Negeri Lampung</p>
+                        <span class="text-[10px] font-bold text-slate-400 block mb-2">2023</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="cert3_desc">Penguasaan aplikasi Excel untuk analisis data.</p>
+                    </div>
+                    <div class="w-24 h-28 bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 rounded-xl p-1 shrink-0 flex flex-col items-center justify-center text-center shadow-xs cursor-pointer hover:border-gold-500 transition" onclick="openCertModal('Sertifikat Pelatihan Microsoft Excel', 'Polinela', '2023')">
+                        <i class="fa-solid fa-file-excel text-emerald-600 text-3xl mb-1"></i>
+                        <span class="text-[9px] font-bold text-navy-950 dark:text-white">Excel Advanced</span>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex justify-between items-center gap-4">
+                    <div>
+                        <h3 class="text-sm font-extrabold text-navy-950 dark:text-white">Sertifikat TOEFL</h3>
+                        <p class="text-xs font-bold text-gold-600 dark:text-gold-400 mb-1">UPT Bahasa Polinela</p>
+                        <span class="text-[10px] font-bold text-slate-400 block mb-2">2023</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="cert4_desc">Kemampuan bahasa Inggris (TOEFL Score).</p>
+                    </div>
+                    <div class="w-24 h-28 bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 rounded-xl p-1 shrink-0 flex flex-col items-center justify-center text-center shadow-xs cursor-pointer hover:border-gold-500 transition" onclick="openCertModal('Sertifikat TOEFL', 'UPT Bahasa Polinela', '2023')">
+                        <i class="fa-solid fa-language text-blue-600 text-3xl mb-1"></i>
+                        <span class="text-[9px] font-bold text-navy-950 dark:text-white">TOEFL Score</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: PROJECT -->
+    <section id="project" class="py-16 md:py-20 bg-white dark:bg-navy-950 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="project_subtitle">Karya & Proyek Terkait</span>
+                <h2 class="text-3xl font-extrabold text-navy-950 dark:text-white">Project</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-navy-950 relative p-4 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Ruang Stok" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">Ruang Stok (Student Startup)</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" data-i18n="proj1_desc">
+                                Aplikasi manajemen stok berbasis web untuk UMKM dengan Google Sheets, Apps Script, dan JavaScript.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openProjectModal('ruangstok')" class="w-full py-2.5 rounded-xl bg-gold-gradient text-navy-950 font-black text-xs transition flex items-center justify-center gap-1.5 shadow-gold-glow">
+                            <span data-i18n="btn_view_project">Lihat Project</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-navy-950 relative p-4 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Fixed Asset" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">Fixed Asset & Depreciation</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" data-i18n="proj2_desc">
+                                Pencatatan aset tetap dan penyusutan menggunakan Excel dan Coretax GL Depreciation App.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openProjectModal('fixedasset')" class="w-full py-2.5 rounded-xl bg-gold-gradient text-navy-950 font-black text-xs transition flex items-center justify-center gap-1.5 shadow-gold-glow">
+                            <span data-i18n="btn_view_project">Lihat Project</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 bg-navy-950 relative p-4 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" alt="Case Study Excel" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-base font-extrabold text-navy-950 dark:text-white">Case Study Excel Tax</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed" data-i18n="proj3_desc">
+                                Analisis kasus perpajakan dan akuntansi berbasis studi kasus riil perusahaan ritel.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openProjectModal('casestudy')" class="w-full py-2.5 rounded-xl bg-gold-gradient text-navy-950 font-black text-xs transition flex items-center justify-center gap-1.5 shadow-gold-glow">
+                            <span data-i18n="btn_view_project">Lihat Project</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: ACHIEVEMENT -->
+    <section id="achievement" class="py-16 md:py-20 bg-slate-100 dark:bg-navy-900/60 border-b border-slate-200 dark:border-navy-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <span class="text-xs font-bold text-gold-600 dark:text-gold-400 block uppercase tracking-widest" data-i18n="achieve_subtitle">Prestasi & Penghargaan</span>
+                <h2 class="text-3xl font-extrabold text-navy-950 dark:text-white" data-i18n="achieve_title">Pencapaian & Kompetisi</h2>
+            </div>
+
+            <div class="space-y-4 mb-10 max-w-4xl">
+                <!-- Trophy Item 1 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-gold-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-extrabold text-navy-950 dark:text-white" data-i18n="ach1_title">Juara 2 - Lomba Esai Nasional</h4>
+                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400">2024</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="ach1_desc">Tema: Peran Generasi Muda dalam Optimalisasi Penerimaan Pajak</p>
+                    </div>
+                </div>
+
+                <!-- Trophy Item 2 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-gold-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-extrabold text-navy-950 dark:text-white" data-i18n="ach2_title">Finalis - Kompetisi Business Plan</h4>
+                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400">2024</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="ach2_desc">Tema: Inovasi Bisnis Berkelanjutan</p>
+                    </div>
+                </div>
+
+                <!-- Trophy Item 3 -->
+                <div class="glass-card glass-card-hover p-5 rounded-2xl shadow-sm flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-gold-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-extrabold text-navy-950 dark:text-white" data-i18n="ach3_title">Peserta - National Vacation Accounting Competition (NVAC)</h4>
+                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400">2024</span>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="ach3_desc">Bidang: Jurnal, Laporan Keuangan, dan Business Insight</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+                <h4 class="text-sm font-bold text-navy-950 dark:text-white mb-4" data-i18n="ach_doc_title">Dokumentasi Pencapaian & Kompetisi</h4>
+                
+                <div id="ach-gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=800', 'Juara Esai Pajak')">
+                        <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=800" alt="Juara Esai" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-navy-700 cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&q=80&w=800', 'Presentasi Business Plan')">
+                        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&q=80&w=800" alt="Business Plan" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: DYNAMIC PROJECT DETAIL MODAL -->
+    <div id="project-detail-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4 backdrop-blur-md overflow-y-auto">
+        <div class="bg-white dark:bg-navy-900 max-w-4xl w-full rounded-2xl shadow-glass-dark relative my-8 overflow-hidden text-navy-950 dark:text-white border border-gold-500/30">
+            <!-- Modal Header -->
+            <div class="bg-navy-950 text-white p-5 sm:p-6 flex items-center justify-between border-b border-navy-800">
+                <div>
+                    <span class="text-[10px] text-gold-400 uppercase tracking-widest font-extrabold" data-i18n="modal_project_subtitle">Detail Project</span>
+                    <h3 class="text-xl font-bold" id="modal-project-title">Ruang Stok</h3>
+                </div>
+                <button onclick="closeProjectModal()" class="text-slate-400 hover:text-white text-xl p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 sm:p-8 space-y-6">
+                <!-- Top Banner -->
+                <div class="bg-slate-100 dark:bg-navy-800/80 p-6 rounded-xl border border-slate-200 dark:border-navy-700 flex flex-col md:flex-row items-center gap-6 justify-between">
+                    <div class="w-full md:w-1/2 h-44 rounded-lg overflow-hidden border border-slate-300 dark:border-navy-700 shadow">
+                        <img id="modal-project-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Project Cover" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left space-y-1">
+                        <div class="inline-flex items-center gap-2 mb-1">
+                            <div id="modal-project-badge" class="w-8 h-8 rounded-lg bg-gold-gradient text-navy-950 flex items-center justify-center font-bold text-xs shadow">
+                                RS
+                            </div>
+                            <span class="font-bold text-lg text-navy-950 dark:text-white" id="modal-project-tagline-title">Ruang Stok</span>
+                        </div>
+                        <p class="text-xs font-bold text-gold-600 dark:text-gold-400 uppercase tracking-wide" id="modal-project-subtitle">Smart Inventory for Smart Business</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1" data-i18n="modal_about_proj">Tentang Project</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" id="modal-project-desc">
+                                Deskripsi proyek.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" data-i18n="modal_team">Susunan Tim</h4>
+                            <div class="space-y-1.5 text-xs text-slate-700 dark:text-slate-300" id="modal-project-team">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" data-i18n="modal_tech">Teknologi</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-center" id="modal-project-tech">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-4 bg-slate-50 dark:bg-navy-800 border-t border-slate-200 dark:border-navy-700 flex justify-end">
+                <button onclick="closeProjectModal()" class="px-5 py-2 rounded-xl bg-gold-gradient text-navy-950 font-bold text-xs transition" data-i18n="modal_close">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 9: GET IN TOUCH / CONTACT -->
+    <section id="contact" class="py-16 md:py-24 bg-[#070E1E] text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Info Left -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs text-gold-400 uppercase font-bold tracking-widest block mb-1">Get in Touch</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="contact_heading">Hubungi Saya</h2>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-2" data-i18n="contact_subheading">
+                            Mari terhubung dan berdiskusi lebih lanjut.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-base shadow">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 block">Email</span>
+                                <a href="mailto:adelia@gmail.com" class="font-bold hover:text-gold-400 transition">adelia@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-base shadow">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 block">Linkedin</span>
+                                <a href="https://linkedin.com" target="_blank" class="font-bold hover:text-gold-400 transition">linkedin.com/in/adelia</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-base shadow">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 block" data-i18n="contact_location_label">Lokasi</span>
+                                <span class="font-bold">Lampung, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Right Card -->
+                <div class="lg:col-span-7 bg-navy-900/90 p-6 sm:p-8 rounded-2xl border border-gold-500/20 shadow-2xl">
+                    <form onsubmit="handleContactForm(event)" class="space-y-4">
+                        <div>
+                            <input type="text" id="form-name" required placeholder="Nama Lengkap" aria-label="Nama Lengkap" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-xs focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition">
+                        </div>
+                        <div>
+                            <input type="email" id="form-email" required placeholder="Alamat Email" aria-label="Email" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-xs focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition">
+                        </div>
+                        <div>
+                            <textarea rows="4" id="form-msg" required placeholder="Pesan Anda" aria-label="Pesan" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-navy-800 text-white text-xs focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gold-gradient text-navy-950 font-black text-xs transition shadow-gold-glow hover:scale-[1.02] transform duration-200" data-i18n="form_submit">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Thank You Signature Banner -->
+            <div class="mt-20 text-center space-y-2">
+                <p class="font-cursive text-4xl sm:text-5xl text-gold-gradient">Thank You</p>
+                <p class="text-xs text-slate-400 tracking-widest uppercase font-semibold" data-i18n="thank_you_sub">For Visiting My Portfolio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-slate-400 py-6 text-xs border-t border-navy-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Adelia. All rights reserved.</p>
+            <div class="flex gap-4 text-base text-slate-400">
+                <a href="https://linkedin.com" target="_blank" class="hover:text-gold-400 transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:adelia@gmail.com" class="hover:text-gold-400 transition" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-gold-400 transition" title="Instagram"><i class="fa-brands fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-md">
+        <div class="relative max-w-3xl w-full text-center">
+            <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-gold-400 text-2xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Pratinjau Gambar" class="max-h-[80vh] mx-auto rounded-xl shadow-2xl border border-gold-500/30">
+            <p id="lightbox-caption" class="text-white text-xs mt-3 bg-navy-950 border border-gold-500/30 px-5 py-2 rounded-full inline-block font-semibold"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        /* Multi-Language Translations Dictionary (ID & EN) */
+        const translations = {
+            id: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_org: "Organization",
+                nav_exp: "Experience",
+                nav_cert: "Certifications",
+                nav_skills: "Skills",
+                nav_software: "Software",
+                nav_project: "Project",
+                nav_achieve: "Achievement",
+                nav_contact: "Contact",
+
+                hero_hello: "Hello, I'm",
+                hero_desc: "Saya adalah mahasiswa Akuntansi Perpajakan yang memiliki ketertarikan di bidang perpajakan, keuangan, serta manajemen aset.",
+                download_cv_hero: "Download CV",
+
+                shortcut_profile: "Profile",
+                shortcut_exp: "Experience",
+                shortcut_org: "Organization",
+                shortcut_achieve: "Achievement",
+                shortcut_cert: "Certification",
+                shortcut_skills: "Skills",
+                shortcut_software: "Software",
+                shortcut_project: "Project",
+                shortcut_contact: "Contact",
+                card_quote: "\"Small steps create big results.\"",
+
+                tab_section_subtitle: "Informasi Utama",
+                tab_section_title: "About Me",
+                tab_profile: "Profil Saya",
+                tab_edu: "Pendidikan",
+                tab_skills: "Keahlian",
+                tab_software: "Software Tools",
+
+                profile_role: "Mahasiswa Akuntansi Perpajakan",
+                profile_univ: "Politeknik Negeri Lampung",
+                profile_quote: "\"Saya percaya bahwa ilmu, pengalaman, dan karakter adalah kunci untuk mencapai masa depan yang lebih baik.\"",
+                profile_about_title: "Tentang Saya",
+                profile_about_text: "Saya adalah mahasiswa Akuntansi Perpajakan semester 7 di Politeknik Negeri Lampung. Memiliki ketertarikan di bidang perpajakan, keuangan, dan manajemen aset. Saya senang belajar hal baru, bekerja dalam tim, serta terus mengembangkan diri untuk mencapai tujuan baru di masa depan.",
+
+                edu_heading: "Riwayat Pendidikan Formal",
+                edu_subheading: "Jejak akademik dan fokus studi keahlian",
+                edu_polinela_desc: "Mempelajari pemahaman mendalam terkait Akuntansi Keuangan, Rekonsiliasi Fiskal, Kepatuhan & Pemeriksaan Pajak, Penggunaan Coretax & DJP Online, Serta Akuntansi Manajemen.",
+                edu_school_desc: "Mempelajari dasar-dasar pencatatan jurnal akuntansi, siklus pembukuan keuangan, dan perhitungan bisnis dasar.",
+
+                sw_excel: "Pengolahan data & analisis keuangan",
+                sw_word: "Dokumentasi & penyusunan laporan",
+                sw_ppt: "Media presentasi interaktif",
+                sw_coretax: "Sistem Administrasi Perpajakan",
+                sw_djp: "e-Filing & e-Billing Pajak",
+                sw_gw: "Kolaborasi Sheets & Drive",
+                sw_canva: "Desain grafis & visualisasi",
+                sw_other_title: "Lainnya",
+                sw_other: "Tools & Aplikasi Pendukung",
+
+                org_subtitle: "Pengalaman Berorganisasi",
+                org_title: "Organisasi & Kepanitiaan",
+                org_item1_desc: "Bertanggung jawab dalam pengelolaan sumber daya manusia, pengawasan kinerja anggota, dan pengembangan program kerja organisasi.",
+                org_item2_desc: "Membantu kegiatan administrasi klinik, penyelenggaraan pelatihan akuntansi, dan program sosialisasi e-Filing / perpajakan.",
+                org_doc_title: "Dokumentasi Organisasi & Kepanitiaan",
+
+                exp_subtitle: "Pengalaman Kerja & Magang",
+                exp_item1_desc: "Membantu kegiatan administrasi perpajakan, pengelolaan data transaksi, dan penyusunan laporan keuangan bulanan.",
+                exp_item2_desc: "Membantu pelayanan WPOP, asistensi pelaporan e-Filing, pengelolaan arsip SPT, dan kegiatan kehumasan kantor pajak.",
+                exp_gallery_sub: "Detail Dokumentasi",
+                exp_gallery_title: "Foto Pengalaman Kerja",
+
+                cert_subtitle: "Sertifikasi & Kualifikasi",
+                cert_title: "Sertifikasi",
+                cert1_desc: "Sertifikasi perpajakan tingkat dasar dan lanjutan.",
+                cert2_desc: "Peningkatan pemahaman terkait regulasi perpajakan terbaru.",
+                cert3_desc: "Penguasaan aplikasi Excel untuk analisis data.",
+                cert4_desc: "Kemampuan bahasa Inggris (TOEFL Score).",
+
+                project_subtitle: "Karya & Proyek Terkait",
+                proj1_desc: "Aplikasi manajemen stok berbasis web untuk UMKM dengan Google Sheets, Apps Script, dan JavaScript.",
+                proj2_desc: "Pencatatan aset tetap dan penyusutan menggunakan Excel dan Coretax GL Depreciation App.",
+                proj3_desc: "Analisis kasus perpajakan dan akuntansi berbasis studi kasus riil perusahaan ritel.",
+                btn_view_project: "Lihat Project",
+
+                achieve_subtitle: "Prestasi & Penghargaan",
+                achieve_title: "Pencapaian & Kompetisi",
+                ach1_title: "Juara 2 - Lomba Esai Nasional",
+                ach1_desc: "Tema: Peran Generasi Muda dalam Optimalisasi Penerimaan Pajak",
+                ach2_title: "Finalis - Kompetisi Business Plan",
+                ach2_desc: "Tema: Inovasi Bisnis Berkelanjutan",
+                ach3_title: "Peserta - National Vacation Accounting Competition (NVAC)",
+                ach3_desc: "Bidang: Jurnal, Laporan Keuangan, dan Business Insight",
+                ach_doc_title: "Dokumentasi Pencapaian & Kompetisi",
+
+                contact_heading: "Hubungi Saya",
+                contact_subheading: "Mari terhubung dan berdiskusi lebih lanjut.",
+                contact_location_label: "Lokasi",
+                form_submit: "Kirim Pesan",
+                thank_you_sub: "Terima Kasih Atas Kunjungan Anda",
+
+                modal_project_subtitle: "Detail Project",
+                modal_about_proj: "Tentang Project",
+                modal_team: "Susunan Tim",
+                modal_tech: "Teknologi",
+                modal_close: "Tutup"
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_org: "Organization",
+                nav_exp: "Experience",
+                nav_cert: "Certifications",
+                nav_skills: "Skills",
+                nav_software: "Software",
+                nav_project: "Project",
+                nav_achieve: "Achievement",
+                nav_contact: "Contact",
+
+                hero_hello: "Hello, I'm",
+                hero_desc: "I am a Tax Accounting student with a deep passion for taxation, finance, and asset management.",
+                download_cv_hero: "Download CV",
+
+                shortcut_profile: "Profile",
+                shortcut_exp: "Experience",
+                shortcut_org: "Organization",
+                shortcut_achieve: "Achievement",
+                shortcut_cert: "Certification",
+                shortcut_skills: "Skills",
+                shortcut_software: "Software",
+                shortcut_project: "Project",
+                shortcut_contact: "Contact",
+                card_quote: "\"Small steps create big results.\"",
+
+                tab_section_subtitle: "Key Overview",
+                tab_section_title: "About Me",
+                tab_profile: "My Profile",
+                tab_edu: "Education",
+                tab_skills: "Skills",
+                tab_software: "Software Tools",
+
+                profile_role: "Tax Accounting Student",
+                profile_univ: "Politeknik Negeri Lampung",
+                profile_quote: "\"I believe that knowledge, experience, and character are the keys to achieving a better future.\"",
+                profile_about_title: "About Me",
+                profile_about_text: "I am a 7th semester Tax Accounting student at Politeknik Negeri Lampung with a strong interest in taxation, finance, and asset management. I enjoy learning new skills, working collaboratively in teams, and continuously improving to reach new goals.",
+
+                edu_heading: "Formal Education History",
+                edu_subheading: "Academic path and core field specialization",
+                edu_polinela_desc: "Studying Financial Accounting, Tax Reconciliation, Tax Compliance & Auditing, Coretax & DJP Online Applications, and Managerial Accounting.",
+                edu_school_desc: "Studied accounting journal fundamentals, financial bookkeeping cycles, and essential business mathematics.",
+
+                sw_excel: "Data processing & financial analysis",
+                sw_word: "Documentation & report writing",
+                sw_ppt: "Interactive presentations",
+                sw_coretax: "Tax Administration System",
+                sw_djp: "Tax e-Filing & e-Billing",
+                sw_gw: "Sheets & Drive Collaboration",
+                sw_canva: "Graphic design & visualization",
+                sw_other_title: "Others",
+                sw_other: "Supporting Productivity Tools",
+
+                org_subtitle: "Organizational Involvement",
+                org_title: "Organizations & Committees",
+                org_item1_desc: "Responsible for human resource management, performance monitoring, and work program execution.",
+                org_item2_desc: "Assisting clinic administration, accounting workshops, and tax e-Filing outreach programs.",
+                org_doc_title: "Organization Documentation",
+
+                exp_subtitle: "Work & Internship Experience",
+                exp_item1_desc: "Assisting in tax administration, transaction data processing, and monthly financial reporting.",
+                exp_item2_desc: "Assisting taxpayer services, e-Filing support, tax return filing archives, and public relations.",
+                exp_gallery_sub: "Documentation Details",
+                exp_gallery_title: "Work Experience Photos",
+
+                cert_subtitle: "Certifications & Credentials",
+                cert_title: "Certifications",
+                cert1_desc: "Basic and advanced tax certification.",
+                cert2_desc: "Updated understanding of latest tax regulations.",
+                cert3_desc: "Mastery of Excel for data analysis.",
+                cert4_desc: "English proficiency test (TOEFL Score).",
+
+                project_subtitle: "Portfolio & Projects",
+                proj1_desc: "Web-based inventory management app for MSMEs using Google Sheets, Apps Script, and JavaScript.",
+                proj2_desc: "Fixed asset recording and depreciation modeling using Excel and Coretax GL Depreciation App.",
+                proj3_desc: "Real-world retail tax and accounting case study analysis.",
+                btn_view_project: "View Project",
+
+                achieve_subtitle: "Honors & Awards",
+                achieve_title: "Achievements & Competitions",
+                ach1_title: "2nd Winner - National Essay Contest",
+                ach1_desc: "Theme: Youth Role in Tax Revenue Optimization",
+                ach2_title: "Finalist - Business Plan Competition",
+                ach2_desc: "Theme: Sustainable Business Innovation",
+                ach3_title: "Participant - National Vacation Accounting Competition (NVAC)",
+                ach3_desc: "Field: Journals, Financial Reports, and Business Insights",
+                ach_doc_title: "Achievement Documentation",
+
+                contact_heading: "Get in Touch",
+                contact_subheading: "Let's connect and discuss further opportunities.",
+                contact_location_label: "Location",
+                form_submit: "Send Message",
+                thank_you_sub: "Thank You For Visiting My Portfolio",
+
+                modal_project_subtitle: "Project Details",
+                modal_about_proj: "About Project",
+                modal_team: "Team Structure",
+                modal_tech: "Technologies",
+                modal_close: "Close"
+            }
+        };
+
+        /* Dynamic Projects Data */
+        const projectData = {
+            ruangstok: {
+                title: "Ruang Stok (Student Startup)",
+                subtitle: "Smart Inventory for Smart Business",
+                badge: "RS",
+                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+                desc: {
+                    id: "Ruang Stok adalah aplikasi manajemen stok berbasis web yang dibangun menggunakan Google Sheets, Google Apps Script, dan JavaScript. Aplikasi ini ditujukan untuk membantu UMKM dalam mengelola persediaan barang secara lebih mudah, akurat, dan real-time.",
+                    en: "Ruang Stok is a web-based inventory management application built using Google Sheets, Google Apps Script, and JavaScript. Designed to help MSMEs manage stock easily, accurately, and in real-time."
+                },
+                team: [
+                    { role: "CEO", name: "Adelia", icon: "fa-user-gear" },
+                    { role: "CFO", name: "Dita Noviana Sari", icon: "fa-coins" },
+                    { role: "COO", name: "Melani Nainggolan", icon: "fa-briefcase" },
+                    { role: "CMO", name: "Risman Tri Wahyuni", icon: "fa-bullhorn" }
+                ],
+                tech: [
+                    { name: "Sheets", icon: "fa-file-excel text-emerald-600" },
+                    { name: "Apps Script", icon: "fa-code text-blue-600" },
+                    { name: "JS", icon: "fa-brands fa-js text-amber-500" },
+                    { name: "Web App", icon: "fa-globe text-cyan-600" }
+                ]
+            },
+            fixedasset: {
+                title: "Fixed Asset & Depreciation",
+                subtitle: "Automated Asset Valuation System",
+                badge: "FA",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                desc: {
+                    id: "Proyek ini mencakup perancangan model pencatatan aset tetap dan skema penyusutan otomatis berbasis saldo menurun dan garis lurus. Terintegrasi dengan simulasi Coretax GL Depreciation App.",
+                    en: "This project involves designing a fixed asset recording model and automated depreciation schedules using declining balance and straight-line methods, integrated with Coretax GL simulation."
+                },
+                team: [
+                    { role: "Analyst", name: "Adelia", icon: "fa-user-gear" },
+                    { role: "Advisor", name: "Tim Laboratorium Akuntansi", icon: "fa-chalkboard-user" }
+                ],
+                tech: [
+                    { name: "Excel Advanced", icon: "fa-file-excel text-emerald-600" },
+                    { name: "Coretax GL", icon: "fa-shield-halved text-amber-500" },
+                    { name: "Financial Model", icon: "fa-calculator text-blue-500" }
+                ]
+            },
+            casestudy: {
+                title: "Case Study Excel Tax",
+                subtitle: "Comprehensive Retail Tax & Accounting Audit",
+                badge: "CT",
+                img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
+                desc: {
+                    id: "Studi kasus komprehensif analisis perpajakan dan penyusunan rekonsiliasi fiskal untuk entitas usaha ritel skala menengah, termasuk penghitungan PPh 21, PPh 23, dan PPN.",
+                    en: "Comprehensive case study on tax analysis and fiscal reconciliation for mid-sized retail enterprises, including calculations for Income Tax Art 21, 23, and VAT."
+                },
+                team: [
+                    { role: "Lead Researcher", name: "Adelia", icon: "fa-user-gear" }
+                ],
+                tech: [
+                    { name: "Excel", icon: "fa-file-excel text-emerald-600" },
+                    { name: "e-Filing", icon: "fa-landmark text-gold-500" },
+                    { name: "Fiscal Reconciliation", icon: "fa-scale-balanced text-purple-500" }
+                ]
+            }
+        };
+
+        /* State Variables */
+        let currentLang = 'id';
+
+        /* Language Toggle Function */
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            document.getElementById('lang-indicator').innerText = currentLang.toUpperCase();
+            document.getElementById('lang-indicator-mobile').innerText = currentLang.toUpperCase();
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            if (currentLang === 'en') {
+                document.getElementById('form-name').placeholder = "Full Name";
+                document.getElementById('form-email').placeholder = "Email Address";
+                document.getElementById('form-msg').placeholder = "Your Message";
+            } else {
+                document.getElementById('form-name').placeholder = "Nama Lengkap";
+                document.getElementById('form-email').placeholder = "Alamat Email";
+                document.getElementById('form-msg').placeholder = "Pesan Anda";
+            }
+
+            showToast(currentLang === 'id' ? 'Bahasa diubah ke Indonesia' : 'Language switched to English');
+        }
+
+        /* Dark Mode Switcher Function */
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            const iconClass = isDark ? 'fa-solid fa-sun text-gold-400' : 'fa-solid fa-moon text-xs';
+            document.getElementById('theme-icon').className = iconClass;
+            document.getElementById('theme-icon-mobile').className = iconClass;
+
+            showToast(isDark ? (currentLang === 'id' ? 'Mode Gelap Aktif' : 'Dark Mode Enabled') : (currentLang === 'id' ? 'Mode Terang Aktif' : 'Light Mode Enabled'));
+        }
+
+        /* About Sub-tab Handler */
+        function switchAboutTab(tabName) {
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.add('hidden'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('text-slate-600', 'dark:text-slate-300');
+            });
+
+            const targetPanel = document.getElementById(`panel-${tabName}`);
+            const targetBtn = document.getElementById(`btn-tab-${tabName}`);
+
+            if (targetPanel && targetBtn) {
+                targetPanel.classList.remove('hidden');
+                targetBtn.classList.add('active-tab');
+                targetBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
+            }
+
+            const titles = {
+                profile: { id: "About Me", en: "About Me" },
+                education: { id: "Riwayat Pendidikan Formal", en: "Educational History" },
+                skills: { id: "Keahlian & Kompetensi", en: "Skills & Competencies" },
+                software: { id: "Aplikasi & Software Tools", en: "Software & Tools" }
+            };
+
+            if (titles[tabName]) {
+                document.getElementById('tab-section-title').innerText = titles[tabName][currentLang];
+            }
+        }
+
+        /* Mobile Drawer Toggle */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        /* Lightbox Image Preview */
+        function openLightbox(src, caption) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = caption;
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /* Project Dynamic Modal Handler */
+        function openProjectModal(key) {
+            const data = projectData[key];
+            if (!data) return;
+
+            document.getElementById('modal-project-title').innerText = data.title;
+            document.getElementById('modal-project-tagline-title').innerText = data.title;
+            document.getElementById('modal-project-subtitle').innerText = data.subtitle;
+            document.getElementById('modal-project-badge').innerText = data.badge;
+            document.getElementById('modal-project-img').src = data.img;
+            document.getElementById('modal-project-desc').innerText = data.desc[currentLang] || data.desc.id;
+
+            const teamContainer = document.getElementById('modal-project-team');
+            teamContainer.innerHTML = data.team.map(m => `
+                <p class="flex items-center gap-2">
+                    <i class="fa-solid ${m.icon} text-gold-500 w-4"></i>
+                    <span class="font-bold">${m.role}:</span> ${m.name}
+                </p>
+            `).join('');
+
+            const techContainer = document.getElementById('modal-project-tech');
+            techContainer.innerHTML = data.tech.map(t => `
+                <div class="p-2 rounded bg-slate-50 dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
+                    <i class="fa-solid ${t.icon} text-lg block mb-0.5"></i>
+                    <span class="text-[9px] font-bold text-slate-600 dark:text-slate-300">${t.name}</span>
+                </div>
+            `).join('');
+
+            const modal = document.getElementById('project-detail-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-detail-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openCertModal(title, issuer, year) {
+            showToast(`${currentLang === 'id' ? 'Sertifikat' : 'Certificate'}: ${title} (${issuer} - ${year})`);
+        }
+
+        function downloadCV() {
+            showToast(currentLang === 'id' ? 'Mengunduh CV Adelia (PDF)...' : 'Downloading Adelia\'s CV (PDF)...');
+        }
+
+        function handleContactForm(e) {
+            e.preventDefault();
+            showToast(currentLang === 'id' ? 'Pesan Anda berhasil dikirim ke Adelia!' : 'Your message has been sent to Adelia!');
+            e.target.reset();
+        }
+
+        /* Toast Notification Helper */
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-navy-950 dark:bg-gold-gradient text-gold-400 dark:text-navy-950 border border-gold-500/40 px-5 py-3 rounded-xl shadow-gold-glow text-xs font-bold flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-sm"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
