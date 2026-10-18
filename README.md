@@ -1,2 +1,0 @@
-# portfolio-adelia
-Web Portfolio
